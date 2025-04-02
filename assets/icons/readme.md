@@ -37,4 +37,25 @@ Todos os ícones devem:
 ---
 
 ## 📦 Estrutura de Exemplo
+assets/icons/ ├── sucesso.svg ├── alerta.svg ├── erro.svg ├── executivo.svg ├── growth.svg ├── vendas.svg ├── produto.svg └── filtro.svg
 
+
+---
+
+## ✅ Boas Práticas
+
+- Evite cores vibrantes demais — utilize a **paleta do projeto definida em `settings.py`**.
+- Prefira ícones com formas claras, simples e reconhecíveis.
+- Centralize os ícones nos arquivos `.svg` para evitar desalinhamentos no Streamlit.
+
+---
+
+## 📁 Créditos (se aplicável)
+
+Utilize apenas ícones de fontes com licença livre, como:
+
+- [https://heroicons.com](https://heroicons.com)
+- [https://feathericons.com](https://feathericons.com)
+- [https://fontawesome.com](https://fontawesome.com)
+
+---
