@@ -1,29 +1,30 @@
 # settings.py
 # Configurações globais do dashboard BR Bank
 
-# Paleta de cores acessíveis (modo claro e escuro)
+# Paleta de cores acessível (modo claro/escuro e contraste)
 PALETTE = {
-    "primary": "#005BA1",
-    "secondary": "#00B0F0",
-    "success": "#28a745",
-    "danger": "#dc3545",
-    "warning": "#ffc107",
-    "info": "#17a2b8",
-    "light": "#f8f9fa",
-    "dark": "#343a40"
+    "primary": "#005BA1",     # Azul escuro institucional (bom contraste em fundo claro)
+    "secondary": "#0072CE",   # Azul médio vibrante (boa legibilidade com branco/preto)
+    "success": "#2E8540",     # Verde escuro acessível (substitui o verde padrão para contraste)
+    "danger": "#B91C1C",      # Vermelho escuro (alerta crítico, legível sobre claro/escuro)
+    "warning": "#F59E0B",     # Amarelo queimado (melhor legibilidade que o amarelo puro)
+    "info": "#1C64F2",        # Azul informativo vibrante (ótimo contraste e destaque)
+    "light": "#F4F4F5",       # Cinza claro para fundo (modo claro suave, menos brilho)
+    "dark": "#1F2937",        # Azul petróleo escuro (para fundo no dark mode)
+    "neutral": "#6B7280"      # Texto neutro, cinza médio com bom contraste sobre ambos modos
 }
 
-# Perfis de usuário
+# 👤 Perfis de stakeholders para navegação e visões personalizadas
 USER_PROFILES = [
-    "Executivo",
-    "Growth",
-    "Vendas",
-    "Produto"
+    "Executivo",   # Visão de metas, receita, margem, projeções
+    "Growth",      # Aquisição, CAC, ROAS, campanhas
+    "Vendas",      # Conversão por vendedor, follow-ups, perdas
+    "Produto"      # Retenção, churn, upsell/cross-sell
 ]
 
-# Configurações de fonte
+# 🔤 Configurações tipográficas
 FONT = {
-    "family": "Arial",
+    "family": "Arial",  # Fonte padrão (web-safe e acessível)
     "size": {
         "small": 12,
         "medium": 14,
@@ -31,9 +32,9 @@ FONT = {
     }
 }
 
-# Modo escuro e contraste
+# ♿ Preferências de acessibilidade
 THEME = {
-    "dark_mode": True,
-    "high_contrast": False,
-    "color_blind_mode": False
+    "dark_mode": True,           # Modo escuro ativado por padrão
+    "high_contrast": False,      # Contraste alto desativado
+    "color_blind_mode": False    # Suporte a daltônicos (paleta alternativa pode ser implementada)
 }
