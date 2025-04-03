@@ -1,61 +1,54 @@
-# 📁 assets/icons/
+# 📁 assets/
 
-Esta pasta armazena os **ícones customizados** utilizados no dashboard tático do BR Bank. Os ícones reforçam a comunicação visual, facilitam a leitura dos KPIs e aumentam a acessibilidade da interface — especialmente nos modos escuro, daltônico e alto contraste.
+A pasta `assets/` centraliza todos os **recursos visuais** utilizados no dashboard tático do BR Bank, com foco em acessibilidade, responsividade e identidade visual consistente com a marca.
 
 ---
 
-## 🎯 Finalidade
+## 🎨 Estrutura
 
-Os ícones são usados para representar:
+assets/ ├── icons/ # Ícones customizados usados nos KPIs e navegação └── styles.css # Estilo visual do dashboard (cores, fontes, dark mode)
 
-- Indicadores de performance (ex: ROAS, CAC, Lucro)
-- Status visuais (ex: sucesso, alerta, erro)
+---
+
+## 📌 Descrição dos Arquivos
+
+### 📁 icons/
+Contém os ícones utilizados ao longo do dashboard, como:
+
+- Indicadores de performance (💰 Receita, 📉 CAC, 📈 ROAS)
+- Status visuais (✅ Sucesso, ⚠️ Alerta, ❌ Erro)
 - Perfis de usuário (Executivo, Growth, Vendas, Produto)
-- Elementos de navegação (ex: filtros, setas, voltar, avançar)
+- Navegação e filtros
+
+🔗 Veja detalhes específicos em: `assets/icons/README.md`
 
 ---
 
-## 🧩 Regras de Organização
+### 🎨 styles.css
+Este arquivo contém o estilo global do dashboard:
 
-| Tipo de Ícone     | Uso Sugerido                          | Formato Ideal       |
-|-------------------|----------------------------------------|----------------------|
-| KPIs              | ROAS, CAC, Receita, Lucro              | `.svg` com fundo transparente |
-| Status            | Sucesso ✅, Erro ❌, Alerta ⚠️          | `.svg` ou `.png`, 24x24px |
-| Perfis            | Executivos, Vendas, Growth, Produto    | `.svg`, 48x48px, ícone neutro |
-| Navegação         | Setas, filtros, menus, ícones de ação  | `.svg`, adaptável a CSS |
-
----
-
-## 🎨 Acessibilidade Visual
-
-Todos os ícones devem:
-
-- Ter contraste suficiente para funcionar em **modo escuro** e **modo daltônico**
-- Ser vetoriais (preferencialmente `.svg`) para manter qualidade em diferentes resoluções
-- Ser nomeados de forma descritiva e sem espaços (ex: `executivo.svg`, `sucesso.svg`)
+- Paleta de cores (modo claro e escuro)
+- Tamanhos de fonte e espaçamento
+- Regras para responsividade
+- Ícones visuais com classes reutilizáveis
+- Estilos adicionais de acessibilidade (alto contraste, foco visível)
 
 ---
 
-## 📦 Estrutura de Exemplo
-assets/icons/ ├── sucesso.svg ├── alerta.svg ├── erro.svg ├── executivo.svg ├── growth.svg ├── vendas.svg ├── produto.svg └── filtro.svg
+## ♿ Acessibilidade Visual
+Todos os recursos visuais seguem boas práticas de acessibilidade:
 
-
----
-
-## ✅ Boas Práticas
-
-- Evite cores vibrantes demais — utilize a **paleta do projeto definida em `settings.py`**.
-- Prefira ícones com formas claras, simples e reconhecíveis.
-- Centralize os ícones nos arquivos `.svg` para evitar desalinhamentos no Streamlit.
+- Contraste suficiente entre fundo/texto
+- Ícones com significados visuais claros
+- Compatibilidade com dark mode e modo daltônico
+- Suporte ao ajuste de fontes e contraste via `settings.py`
 
 ---
 
-## 📁 Créditos (se aplicável)
+## ✨ Boas Práticas
 
-Utilize apenas ícones de fontes com licença livre, como:
-
-- [https://heroicons.com](https://heroicons.com)
-- [https://feathericons.com](https://feathericons.com)
-- [https://fontawesome.com](https://fontawesome.com)
+- Mantenha o padrão de nomenclatura: `kpi_<nome>.svg`, `icon_<função>.svg`
+- Utilize formatos vetoriais (`.svg`) para máxima compatibilidade
+- Mantenha os arquivos organizados e reutilizáveis
 
 ---
