@@ -1,90 +1,44 @@
-# 📁 assets/icons/
+# 📁 Pasta: assets/icons/
 
-Esta pasta contém todos os **ícones customizados** utilizados no dashboard tático do BR Bank, com foco em uma experiência visual clara, acessível e intuitiva.
+## 🧩 Contexto
+Durante o desenvolvimento da Etapa 5 (Design UX/UI) e Etapa 6 (Desenvolvimento Técnico), optamos por **usar emojis como substitutos temporários de ícones**.
 
----
-
-## 🎯 Finalidade
-
-Os ícones aqui reunidos cumprem diferentes funções:
-
-- **Identificação rápida** de KPIs e métricas (como receita, leads, ROI)
-- **Auxílio visual** na navegação entre seções do dashboard
-- **Refinamento estético** e reforço da identidade visual do BR Bank
+Essa abordagem garante:
+- ✅ Agilidade no desenvolvimento
+- ✅ Experiência visual clara e intuitiva
+- ✅ Nenhuma dependência de arquivos externos ou bibliotecas de ícones
+- ✅ Compatibilidade com Streamlit nativa
 
 ---
 
-## ✅ Padrões e Organização
+## 🎯 Emojis em uso no projeto
 
-### 📌 Nomenclatura recomendada:
-
-| Tipo de Uso           | Prefixo sugerido      | Exemplo                |
-|------------------------|------------------------|-------------------------|
-| KPIs e Métricas        | `kpi_`                 | `kpi_receita.svg`       |
-| Navegação e Páginas    | `nav_`                 | `nav_monetizacao.svg`   |
-| Acessibilidade         | `access_`              | `access_contraste.svg`  |
-| Alertas e Status       | `status_`              | `status_alerta.svg`     |
-| Perfis de Usuário      | `profile_`             | `profile_growth.svg`    |
-
----
-
-## 🧩 Categorias de Ícones
-
-### 🔢 KPIs e Indicadores
-- `kpi_receita.svg`
-- `kpi_cac.svg`
-- `kpi_roas.svg`
-- `kpi_ltv.svg`
-- `kpi_ticket_medio.svg`
-
-### 🔀 Navegação
-- `nav_aquisicao.svg`
-- `nav_retencao.svg`
-- `nav_monetizacao.svg`
-- `nav_projecoes.svg`
-- `nav_analytics.svg`
-
-### 👥 Perfis de Usuário
-- `profile_executivo.svg`
-- `profile_growth.svg`
-- `profile_vendas.svg`
-- `profile_produto.svg`
-
-### ⚠️ Alertas e Status
-- `status_alerta.svg`
-- `status_ok.svg`
-- `status_negativo.svg`
-- `status_em_progresso.svg`
-
-### ♿ Acessibilidade
-- `access_darkmode.svg`
-- `access_daltonico.svg`
-- `access_contraste.svg`
-- `access_fonte.svg`
+| Elemento                | Emoji Usado | Local de Uso               |
+|-------------------------|-------------|----------------------------|
+| Home                    | 🏠          | `home.py`, menu lateral    |
+| Visão Executiva         | 📊          | `overview.py`              |
+| Aquisição de Leads      | 📈          | `acquisition.py`           |
+| Retenção de Leads       | 🔁          | `retention.py`             |
+| Monetização             | 💰          | `monetization.py`          |
+| Projeções de Receita    | 🚀          | `projections.py`           |
+| Visão Analítica         | 🧠          | `analytics.py`             |
+| Acessibilidade          | ♿          | `accessibility.py`         |
+| ROAS                    | 📢          | Cards de KPI               |
+| Ticket Médio            | 🎟️         | Cards de KPI               |
+| Receita Total           | 💵          | Cards e gráficos            |
+| Leads Convertidos       | ✅          | Indicadores rápidos        |
+| Leads Perdidos          | ❌          | Indicadores rápidos        |
 
 ---
 
-## 🎨 Requisitos Visuais
-
-- Formato recomendado: **SVG** (vetorial, leve e escalável)
-- Estilo: flat ou outline, coerente com o design geral
-- Cores: seguir a paleta definida em `settings.py` (usar `fill="currentColor"` sempre que possível para herdar estilos)
-
----
-
-## 🚨 Boas Práticas
-
-- Evitar uso de ícones com textos embutidos
-- Garantir legibilidade em tamanhos pequenos (24x24 ou 32x32 px)
-- Preferir bibliotecas open-source (como [Lucide](https://lucide.dev), [Feather Icons](https://feathericons.com), [Heroicons](https://heroicons.com))
-- Otimizar os arquivos SVG para produção (ex: https://jakearchibald.github.io/svgomg)
+## 🧩 Próximos Passos (opcional para Etapa 9)
+Caso o projeto evolua para uso de ícones visuais no lugar dos emojis, esta pasta poderá conter:
+- Ícones em PNG (32x32 ou 64x64)
+- Subpastas por tipo ou categoria
+- Arquivos SVG se houver suporte visual mais avançado
 
 ---
 
-## 📝 Observações Finais
+## 👨‍💻 Responsável
+Esta decisão foi tomada pelo time técnico do BR Bank para otimizar tempo e manter a entrega alinhada às Etapas 5 e 6 do projeto (Design + Desenvolvimento).
 
-📌 Todos os ícones desta pasta são utilizados em **componentes reutilizáveis** via Streamlit, e são carregados dinamicamente conforme o tema (modo claro ou escuro).
-
-Caso deseje contribuir com novos ícones, siga a convenção de nomes e adicione uma descrição neste `README.md`.
-
----
