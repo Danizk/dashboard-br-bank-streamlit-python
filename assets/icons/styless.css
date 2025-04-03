@@ -1,0 +1,120 @@
+/* =====================
+📁 assets/styles.css
+Estilo visual do dashboard BR Bank
+Acessibilidade | Dark Mode | Contraste | Tipografia
+===================== */
+
+/* 🔤 Tipografia Base */
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #1F2937; /* Escuro padrão */
+  background-color: #F4F4F5; /* Fundo claro padrão */
+}
+
+/* 🌙 Modo Escuro */
+body.dark-mode {
+  background-color: #1F2937;
+  color: #F4F4F5;
+}
+
+.dark-mode .stApp {
+  background-color: #1F2937;
+  color: #E5E7EB;
+}
+
+/* ♿ Contraste Alto */
+body.high-contrast {
+  background-color: #000 !important;
+  color: #FFF !important;
+}
+
+.high-contrast .stApp {
+  background-color: #000 !important;
+  color: #FFF !important;
+}
+
+/* 🔘 Botões */
+button, .stButton>button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: bold;
+  background-color: #005BA1;
+  color: white;
+  border: none;
+}
+
+button:hover, .stButton>button:hover {
+  background-color: #0072CE;
+}
+
+/* 🎨 Cores auxiliares (com base na PALETTE) */
+.text-success {
+  color: #2E8540;
+}
+
+.text-danger {
+  color: #B91C1C;
+}
+
+.text-warning {
+  color: #F59E0B;
+}
+
+.text-info {
+  color: #1C64F2;
+}
+
+.bg-light {
+  background-color: #F4F4F5;
+}
+
+.bg-dark {
+  background-color: #1F2937;
+}
+
+/* 📊 Cards de KPI */
+.kpi-card {
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.08);
+  background-color: white;
+  color: #1F2937;
+}
+
+.dark-mode .kpi-card {
+  background-color: #2D3748;
+  color: #E5E7EB;
+}
+
+/* 🧭 Navegação */
+.sidebar-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #005BA1;
+  margin-bottom: 10px;
+}
+
+.sidebar-profile-select {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* 📘 Tooltips e Ajuda */
+.tooltip {
+  font-size: 12px;
+  color: #6B7280;
+  padding: 4px;
+}
+
+/* ✅ Responsividade */
+@media (max-width: 768px) {
+  .kpi-card {
+    padding: 12px;
+  }
+
+  button {
+    padding: 6px 12px;
+  }
+}
