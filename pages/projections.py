@@ -3,44 +3,61 @@
 
 import streamlit as st
 import pandas as pd
-from utils.simulation import (
-    projetar_receita_acumulada,
-    simular_novos_vendedores,
-    simular_melhoria_conversao
-)
-
-# Carregamento dos dados processados
-df_projecao = pd.read_csv("data/processed/kpis_mensais.csv")
-
-# Parâmetros reais atuais
-meta_receita = 30_000_000  # Meta: R$ 30M
-clientes_atuais = df_projecao["clientes"].sum()
-receita_gerada = df_projecao["receita"].sum()
+import plotly.express as px
+from utils.simulation import calcular_receita_faltante  # Importando função útil
 
 def show():
     st.title("🚀 Projeções e Potencial de Receita")
     st.markdown("Visualize o caminho até a meta de R$ 30 milhões e simule diferentes cenários de crescimento.")
 
-    # Gráfico de receita acumulada
-    st.subheader("📈 Receita Acumulada vs. Meta")
-    fig = projetar_receita_acumulada(df_projecao, meta_receita)
-    st.plotly_chart(fig, use_container_width=True)
+    try:
+        # Carregar dados de cálculos consolidados (podendo conter receita mensal - conforme Etapa 10)
+        df_calculos = pd.read_csv("data/calculos.csv", parse_dates=['Data']) # Assumindo coluna 'Data'
+        # Carregar dicionário de KPIs para acessar a meta (conforme Etapa 10)
+        df_kpis = pd.read_csv("data/kpis_e_metricas_.csv")
+        meta_receita = df_kpis[df_kpis['KPI'] == 'Meta de Receita']['Valor'].iloc[0] if not df_kpis.empty and ('KPI' in df_kpis.columns and 'Valor' in df_kpis.columns and any(df_kpis['KPI'] == 'Meta de Receita')) else 30000000 # Meta padrão
 
-    st.markdown("---")
-    st.subheader("🧪 Simulador: + Vendedores na Equipe")
+        # --- Projeção de Receita Acumulada ---
+        st.subheader("📈 Receita Acumulada vs. Meta")
 
-    novos_vendedores = st.slider("Quantos vendedores adicionais?", min_value=1, max_value=20, value=5)
-    receita_proj_vendedores = simular_novos_vendedores(df_projecao, novos_vendedores)
+        # Assumindo que df_calculos tem colunas 'Data' e 'Receita'
+        df_receita_acumulada = df_calculos.groupby('Data')['Receita'].sum().cumsum().reset_index()
+        df_receita_acumulada['Meta'] = meta_receita
 
-    st.success(f"💼 Com +{novos_vendedores} vendedores, a receita projetada pode chegar a **R$ {receita_proj_vendedores:,.2f}**")
+        fig = px.line(df_receita_acumulada, x='Data', y=['Receita', 'Meta'],
+                      labels={'Receita': 'Receita Acumulada', 'Meta': 'Meta de Receita'},
+                      title='Evolução da Receita Acumulada vs. Meta')
+        st.plotly_chart(fig, use_container_width=True)
 
-    st.markdown("---")
-    st.subheader("🧠 Simulador: Aumento na Taxa de Conversão")
+        # --- Receita Faltante ---
+        receita_atual = df_receita_acumulada['Receita'].iloc[-1] if not df_receita_acumulada.empty else 0
+        receita_faltante = calcular_receita_faltante(meta_receita, receita_atual)
+        st.info(f"💰 Faltam **R$ {receita_faltante:,.2f}** para atingir a meta de R$ {meta_receita:,.2f}.")
 
-    delta_conversao = st.slider("Melhoria esperada na taxa de conversão (%)", min_value=1, max_value=15, value=5)
-    receita_proj_conversao = simular_melhoria_conversao(df_projecao, delta_conversao)
+        st.markdown("---")
+        st.subheader("🧪 Simulador: Impacto no Crescimento")
+        st.markdown("Explore como diferentes fatores podem influenciar a receita futura.")
 
-    st.info(f"📊 Com +{delta_conversao}% de conversão, a receita pode alcançar **R$ {receita_proj_conversao:,.2f}**")
+        # --- Simulador de Novos Vendedores ---
+        st.subheader("➕ Novos Vendedores")
+        novos_vendedores = st.slider("Número de vendedores adicionais", min_value=0, max_value=30, value=5)
+        # Lógica de simulação (a implementar com base nos dados e modelo de vendas)
+        st.info(f"Simulando o impacto de **{novos_vendedores}** novos vendedores na sua equipe.")
+        st.warning("⚠️ A lógica de simulação para novos vendedores precisa ser implementada com base nos dados de produtividade e capacidade.")
 
-    st.markdown("---")
-    st.caption("Fonte: dados históricos extraídos da BR_BANK_DANI_KALOI.xlsv")
+        # --- Simulador de Melhoria na Conversão ---
+        st.subheader("📈 Melhoria na Taxa de Conversão")
+        delta_conversao = st.slider("Aumento percentual na taxa de conversão (%)", min_value=0, max_value=20, value=5)
+        # Lógica de simulação (a implementar com base nos dados históricos de conversão)
+        st.info(f"Simulando um aumento de **{delta_conversao}%** na taxa de conversão.")
+        st.warning("⚠️ A lógica de simulação para melhoria na conversão precisa ser implementada com base nos dados do funil e taxas atuais.")
+
+        st.markdown("---")
+        st.caption("Fonte: dados históricos e meta definidos no planejamento (BR_BANK_DANI_KALOI.xlsv)")
+
+    except FileNotFoundError:
+        st.error("Erro: Os arquivos calculos.csv ou kpis_e_metricas_.csv não foram encontrados na pasta 'data/'.")
+    except KeyError as e:
+        st.error(f"Erro: A coluna '{e}' não foi encontrada nos arquivos de dados.")
+    except Exception as e:
+        st.error(f"Ocorreu um erro: {e}")
