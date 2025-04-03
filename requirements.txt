@@ -1,35 +1,40 @@
-# Framework principal para criação do dashboard
-streamlit==1.32.2
+# 📦 REQUIREMENTS – Dashboard BR Bank (Streamlit + Python)
+# Versão oficial das dependências para execução local e deploy no Streamlit Cloud.
 
-# Manipulação de dados
-pandas==2.2.1
-numpy==1.26.4
+# ——————————————————————————————————————————
+# 🚀 FRAMEWORK PRINCIPAL
+streamlit==1.32.2           # Framework de dashboard interativo
 
-# Visualização interativa
-plotly==5.20.0
-altair==5.2.0
+# ——————————————————————————————————————————
+# 📊 MANIPULAÇÃO DE DADOS
+pandas==2.2.1               # Leitura e transformação de dados tabulares
+numpy==1.26.4               # Cálculos numéricos de apoio
 
-# Simulações e projeções
-scikit-learn==1.4.1.post1
+# ——————————————————————————————————————————
+# 📈 VISUALIZAÇÃO INTERATIVA
+plotly==5.20.0              # Gráficos dinâmicos (funil, séries temporais, ranking)
+altair==5.2.0               # Visualizações declarativas com filtro cruzado
 
-# Leitura de arquivos Excel
-openpyxl==3.1.2
+# ——————————————————————————————————————————
+# 🔮 SIMULAÇÕES E PROJEÇÕES
+scikit-learn==1.4.1.post1   # Modelos de regressão e previsão
 
-# Estilização e responsividade com CSS customizado
-jinja2==3.1.3
+# ——————————————————————————————————————————
+# 📁 LEITURA DE PLANILHAS
+openpyxl==3.1.2             # Suporte à leitura de arquivos Excel (.xlsx)
 
-# Utilitários adicionais
-python-dateutil==2.8.2
-pytz==2024.1
+# ——————————————————————————————————————————
+# 🎨 ESTILO E CSS CUSTOMIZADO
+jinja2==3.1.3               # Templates dinâmicos e estilização personalizada
 
-# Segurança e encoding
-charset-normalizer==3.3.2
+# ——————————————————————————————————————————
+# ⏱ UTILITÁRIOS COMPLEMENTARES
+python-dateutil==2.8.2      # Manipulação de datas com timezones
+pytz==2024.1                # Fusos horários (suporte global)
+cachetools==5.3.2           # Cache local para otimizar performance
+xlsxwriter==3.2.0           # Exportação de dados em Excel (opcional)
+pyyaml==6.0.1               # Leitura de arquivos .yaml (configuração de temas)
 
-# Cache para otimizar carregamento
-cachetools==5.3.2
-
-# Para exportação e manipulação extra (CSV, Excel, etc.)
-xlsxwriter==3.2.0
-
-# Compatibilidade com arquivos de configuração
-pyyaml==6.0.1
+# ——————————————————————————————————————————
+# 🔐 ENCODING E COMPATIBILIDADE
+charset-normalizer==3.3.2   # Tratamento de strings e compatibilidade de caracteres
