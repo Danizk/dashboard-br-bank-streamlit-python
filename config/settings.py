@@ -1,46 +1,58 @@
-# 📚 settings.py
-# Configurações globais do dashboard BR Bank
+# ⚙️ settings.py
+# Configurações globais de estilo, acessibilidade e perfis de usuário do Dashboard BR Bank
 
-# 🎨 Paleta de cores (acessível e compatível com modo claro/escuro)
-COLOR_PALETTE = {
-    "primary": "#005BBB",     # Azul institucional
-    "secondary": "#FFD500",   # Amarelo BR Bank
-    "success": "#3BB273",     # Verde para conversões
-    "danger": "#E94F37",      # Vermelho para alertas/perdas
-    "background": "#FFFFFF",  # Padrão branco (modo claro)
-    "text": "#333333"         # Texto padrão
-}
-
-# 👤 Perfis de usuário disponíveis no menu inicial
+# 👤 Perfis de usuário disponíveis
 USER_PROFILES = [
     "Executivo",
     "Marketing & Growth",
-    "Time de Vendas",
+    "Vendas",
     "Produto"
 ]
 
-# 🧾 Informações do projeto
-PROJECT_METADATA = {
-    "name": "Dashboard Tático – BR Bank",
-    "version": "1.0",
-    "authors": ["Dani Kaloi / Equipe Growth Analytics"],
-    "instituicao": "BR Bank",
-    "descricao": "Painel interativo para monitoramento de leads e performance comercial"
+# 🎨 Paleta de Cores Oficial (usada em cards, gráficos, alertas)
+COLOR_PALETTE = {
+    "primary": "#0043A4",        # Azul BR Bank
+    "secondary": "#0061F2",
+    "success": "#00B050",        # Verde de performance positiva
+    "danger": "#D80027",         # Vermelho de alerta/erro
+    "warning": "#FFA800",        # Amarelo de atenção
+    "neutral": "#F9F9F9",        # Fundo neutro
+    "font": "#333333",           # Cor base para textos
+    "light_gray": "#E0E0E0",
+    "dark_gray": "#444444",
+    "background_dark": "#121212",
+    "background_light": "#FFFFFF"
 }
 
-# 🧠 Categorias de motivo de perda padronizadas
-MOTIVOS_PADRONIZADOS = [
-    "NÃO RETORNOU CONTATO",
-    "NÃO TEM INTERESSE",
-    "OUTROS",
-    "PREÇO ALTO",
-    "VAI DEIXAR PARA OUTRO MOMENTO",
-    "VAI FECHAR COM A CONCORRÊNCIA"
-]
+# 🌓 Modo Visual
+DEFAULT_THEME = "light"  # Opções: "light" ou "dark"
 
-# ♿ Configurações de acessibilidade
-ACESSIBILIDADE_CONFIG = {
-    "modo_daltônico": True,
-    "contraste_automatico": True,
-    "dark_mode_default": False
+# 🔡 Tamanhos de fonte (padrão visual)
+FONT_SIZES = {
+    "title": "2rem",
+    "subtitle": "1.4rem",
+    "normal": "1rem",
+    "small": "0.85rem"
+}
+
+# ♿ Acessibilidade (modo daltônico, contraste)
+ACCESSIBILITY_MODES = {
+    "default": {
+        "contrast": 1.0,
+        "colorblind_safe": False
+    },
+    "high_contrast": {
+        "contrast": 1.4,
+        "colorblind_safe": False
+    },
+    "colorblind": {
+        "contrast": 1.2,
+        "colorblind_safe": True
+    }
+}
+
+# 🧱 Layout
+LAYOUT = {
+    "sidebar_width": 300,
+    "max_content_width": 1200
 }
