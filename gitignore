@@ -1,53 +1,64 @@
-
-# Python
+# 🐍 Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.so
+*.pyc
+*.pyp
+*.pyo
+*.pyo
+*.pdb
+*.egg
 *.egg-info/
-*.log
-
-# Environments
+*.manifest
+*.spec
+.eggs/
 env/
 venv/
-.venv/
 ENV/
 env.bak/
 venv.bak/
+.venv/
 
-# Jupyter Notebook
-.ipynb_checkpoints/
+# 📊 Dados temporários e de cache
+*.db
+*.sqlite3
+*.log
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.json
+*.parquet
+*.feather
 
-# VSCode
-.vscode/
+# ⛔️ Planilha original (deixar apenas no raw local, não versionar no GitHub)
+data/raw/
+!data/raw/README.md
 
-# PyCharm
-.idea/
+# 📁 Dados processados gerados automaticamente
+data/processed/
+!data/processed/README.md
 
-# Streamlit
+# ⚙️ Arquivos do Streamlit
+.streamlit/
 .streamlit/config.toml
-.streamlit/secrets.toml
+.streamlit/*.json
+.streamlit/*.yaml
 
-# Arquivos temporários / sistema
+# 💻 MacOS / Windows
 .DS_Store
 Thumbs.db
 
-# Arquivos de dados (opcional)
-data/raw/*
-data/processed/*
-!data/processed/.gitkeep
-*.xlsx
-*.xls
+# 🔍 Editor & IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Cache do pip
-pip-wheel-metadata/
-*.whl
-
-# Arquivos de deploy (opcional)
-build/
-dist/
-
-# Logs de execução
-*.log
-logs/
+# 🚫 Outros
+*.zip
+*.bak
+*.tmp
+*.swp
+*~
