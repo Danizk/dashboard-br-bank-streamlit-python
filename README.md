@@ -1,27 +1,43 @@
 # 📊 Dashboard Tático – BR Bank (Streamlit + Python)
 
-Este projeto entrega um **dashboard tático interativo** desenvolvido com **Streamlit** e **Python**, voltado para **monitorar e otimizar a jornada dos leads até a conversão**. Baseia-se nos dados do arquivo `BR_BANK_DANI_KALOI.xlsx`, previamente tratado e convertido em `.csv`.
+Este projeto entrega um **dashboard tático interativo** desenvolvido com **Streamlit + Python**, projetado para **monitorar e otimizar toda a jornada de leads até a conversão no BR Bank**, com foco em aquisição, retenção e monetização.
 
 ---
 
 ## 🎯 Objetivo do Projeto
 
-Transformar dados de **aquisição, retenção e monetização** em uma ferramenta digital, estratégica e acessível.  
-Focado em apoiar decisões rápidas e de alto impacto pelos times de:
+Transformar dados de múltiplas fontes em uma **plataforma visual e estratégica** de apoio à decisão.  
+O dashboard oferece visões específicas para cada área do BR Bank:
 
-- Growth & Marketing
-- Vendas
-- Produto
-- Executivos do BR Bank
+- 📈 Executivos: Visão consolidada de faturamento, ROI e metas
+- 📣 Marketing & Growth: Análise de canais, CAC, ROAS e funil de aquisição
+- 📞 Vendas: Performance de vendedores, follow-ups e gargalos
+- 🧠 Produto: Retenção, jornada do cliente e oportunidades de LTV
 
 ---
 
-## ✅ Metas Estratégicas
+## ✅ Metas Estratégicas do Projeto
 
 - Atingir **R$ 30 milhões de faturamento**
-- Melhorar taxa de conversão, CAC, ROAS e LTV
-- Priorizar leads ativos e otimizar follow-up
-- Identificar gargalos por vendedor ou campanha
+- Reduzir o **CAC** e aumentar o **ROAS**
+- Aumentar a taxa de conversão geral e por vendedor
+- Rastrear e priorizar **leads ativos para follow-up**
+- Apoiar a tomada de decisões baseadas em dados (data-driven)
+
+---
+
+## 📌 Etapas do Projeto (10 fases concluídas)
+
+1. **Briefing Estratégico**  
+2. **Diagnóstico dos Dados**  
+3. **Definição de KPIs e Métricas**  
+4. **Modelagem de Dados (ETL local)**  
+5. **Design UX/UI do Dashboard**  
+6. **Desenvolvimento Técnico com Streamlit**  
+7. **Deploy na Nuvem e Publicação no GitHub**  
+8. **Validação com Stakeholders**  
+9. **Manutenção e Evolução Contínua**  
+10. **Estrutura Final da Base em CSV**
 
 ---
 
@@ -42,51 +58,73 @@ Focado em apoiar decisões rápidas e de alto impacto pelos times de:
 
 ```bash
 dashboard_br_bank/
-├── main.py                       # Navegação principal
+├── main.py                       # Navegação principal (roteador Streamlit)
 ├── config/
-│   └── settings.py               # Paleta de cores, perfis, temas
+│   └── settings.py               # Paleta de cores, perfis, temas visuais
 ├── data/
-│   ├── raw/                      # Dados brutos (.csv extraídos do .xlsx)
-│   ├── processed/                # Dados tratados para uso
-│   └── loader.py                 # Carregamento e cache
+│   ├── raw/                      # Arquivos .csv brutos
+│   ├── processed/                # Bases limpas e prontas para ingestão
+│   └── loader.py                 # Funções para carregamento com cache
 ├── utils/
-│   ├── kpi_calculator.py         # Fórmulas e indicadores
-│   ├── simulation.py             # Projeções e simuladores
-│   ├── insights_generator.py     # Frases automáticas
-│   └── accessibility.py          # Modo escuro, contraste e legibilidade
+│   ├── kpi_calculator.py         # Fórmulas de KPIs (CAC, ROAS, etc.)
+│   ├── simulation.py             # Projeções e simuladores de crescimento
+│   ├── insights_generator.py     # Frases automáticas com base em tendências
+│   └── accessibility.py          # Modo escuro, contraste, fonte adaptável
 ├── pages/
-│   ├── home.py                   # Página inicial
-│   ├── overview.py               # Visão executiva geral
-│   ├── acquisition.py            # Campanhas e leads captados
-│   ├── retention.py              # Retenção e follow-up
-│   ├── monetization.py           # Receita, ticket médio e LTV
-│   ├── projections.py            # Simulações e metas
-│   ├── analytics.py              # Visão exploratória analítica
-│   └── accessibility.py          # Configurações visuais
+│   ├── home.py                   # Onboarding e seletor de perfil
+│   ├── overview.py               # Visão Executiva de Alto Nível
+│   ├── acquisition.py            # Performance de campanhas e CAC
+│   ├── retention.py              # Gargalos, perdas e leads ativos
+│   ├── monetization.py           # Receita, LTV, ticket médio
+│   ├── projections.py            # Caminho até os R$30M
+│   ├── analytics.py              # Visão analítica detalhada
+│   └── accessibility.py          # Configurações de acessibilidade
 ├── assets/
-│   ├── icons/                    # Ícones customizados
-│   └── styles.css                # Estilo visual do dashboard
-└── README.md                     # Documentação geral
+│   ├── icons/                    # Ícones personalizados
+│   └── styles.css                # Tema visual customizado
+└── README.md                     # Documentação do projeto
+📈 Bases de Dados (.CSV)
+Baseadas no arquivo original BR_BANK_DANI_KALOI.xlsx, convertido e limpo:
+
+calculos.csv → Indicadores derivados, KPIs e somatórios
+
+crm.csv → Funil de leads, conversão e perdas
+
+dados_consolidados.csv → Campanhas de Ads (Google & Meta)
+
+google_analytics.csv → Visitantes no site por data
+
+relatorio_analitico_consolidado.csv → Input para insights automáticos
+
+leads_convertidos_trafego_pago_.csv → Detalhes de conversões por Ads
+
+kpis_e_metricas_.csv → Dicionário oficial de KPIs do projeto
 
 ▶️ Como Executar Localmente
-1. Clone o repositório:
-
+Clone o repositório:
 git clone https://github.com/SEU_USUARIO/dashboard-br-bank-streamlit-python.git
 cd dashboard-br-bank-streamlit-python
-
-2. Instale as dependências:
+Instale as dependências:
 pip install -r requirements.txt
-
-3. Rode o Streamlit:
+Rode o Streamlit:
 streamlit run main.py
-
-
-☁️ Deploy no Streamlit Cloud
-Acesse em:
+☁️ Deploy na Nuvem (Streamlit Cloud)
+📍 Acesse:
 https://dashboard-br-bank-final.streamlit.app/
 
-✨ Créditos e Manutenção
-Projeto por:
-Dani Kaloi 
-Contato: linkedin.com/danikaloi
+✨ Diferenciais do Projeto
+🔄 Simuladores interativos de crescimento e impacto tático
 
+💡 Insights automáticos com linguagem natural
+
+📊 Drill-down analítico por campanha, público e vendedor
+
+♿ Acessibilidade total: contraste, dark mode, responsividade
+
+📥 Exportação de dados por página (CSV/Excel)
+
+📈 Projeção visual da meta de R$ 30 milhões
+
+👩‍💻 Autoria e Contato
+Projeto por: Dani Kaloi
+💼 linkedin.com/in/danikaloi
