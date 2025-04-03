@@ -1,106 +1,134 @@
-/* assets/styles.css */
-/* Estilos customizados para o dashboard BR Bank - Tema visual, fontes, tooltips e responsividade */
-
+/* RESET & BASE */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #F4F4F5;
-    color: #1F2937;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    background-color: #fff;
 }
 
-h1, h2, h3 {
-    font-weight: bold;
+/* DARK MODE */
+body.dark {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+.dark .kpi-card {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    color: #e0e0e0;
 }
 
-.sidebar .sidebar-content {
-    background-color: #F4F4F5;
-    border-right: 1px solid #D1D5DB;
+/* HIGH CONTRAST */
+body.contrast {
+    background-color: #000;
+    color: #fff;
+}
+.contrast .kpi-card {
+    background-color: #000;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
-.metric-box {
-    padding: 1rem;
-    border-radius: 10px;
+/* KPI CARD */
+.kpi-card {
+    border-radius: 20px;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     margin-bottom: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.2s ease-in-out;
+}
+.kpi-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
-.metric-success {
-    background-color: #D1FAE5;
-    color: #065F46;
+/* TITLES */
+h1, h2, h3, h4 {
+    color: #004aad;
+    font-weight: 600;
+}
+.dark h1, .dark h2, .dark h3 {
+    color: #90caf9;
+}
+.contrast h1, .contrast h2 {
+    color: #ffff00;
 }
 
-.metric-warning {
-    background-color: #FEF3C7;
-    color: #92400E;
+/* BADGES / ALERTAS */
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+.badge-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+.badge-warning {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+.badge-danger {
+    background-color: #f8d7da;
+    color: #842029;
 }
 
-.metric-danger {
-    background-color: #FEE2E2;
-    color: #991B1B;
-}
-
-.card {
-    border-radius: 8px;
-    background: white;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #1F2937;
-    color: #F4F4F5;
-}
-
-.card.dark-mode {
-    background-color: #374151;
-    color: #F4F4F5;
-}
-
-/* Tabela customizada */
-table.dataframe {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-table.dataframe th,
-table.dataframe td {
-    border: 1px solid #E5E7EB;
-    padding: 0.5rem;
-    text-align: left;
-}
-
-table.dataframe th {
-    background-color: #F3F4F6;
-}
-
-/* Tooltips e instruções */
+/* TOOLTIP STYLE */
 .tooltip {
     position: relative;
     display: inline-block;
-    cursor: help;
+    cursor: pointer;
 }
-
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 240px;
-    background-color: #1F2937;
-    color: #F9FAFB;
+    width: 180px;
+    background-color: #333;
+    color: #fff;
     text-align: center;
-    border-radius: 6px;
-    padding: 8px;
+    padding: 0.5rem;
+    border-radius: 8px;
     position: absolute;
     z-index: 1;
-    bottom: 125%; 
+    top: 110%;
     left: 50%;
-    margin-left: -120px;
+    transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
 }
-
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+/* SECTION DIVIDER */
+.section-title {
+    border-left: 6px solid #004aad;
+    padding-left: 1rem;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* RESPONSIVE CONTAINERS */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* BUTTON STYLES */
+.btn-primary {
+    background-color: #004aad;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #003580;
 }
