@@ -1,40 +1,46 @@
-# config/settings.py
-# Configurações globais do Dashboard BR Bank
+# 📚 settings.py
+# Configurações globais do dashboard BR Bank
 
-# Paleta de cores acessível para modo claro e escuro
-PALETTE = {
-    "primary": "#005BA1",       # Azul institucional
-    "secondary": "#0072CE",     # Azul claro vibrante
-    "success": "#2E8540",       # Verde escuro (contraste elevado)
-    "danger": "#B91C1C",        # Vermelho escuro (alerta)
-    "warning": "#F59E0B",       # Amarelo queimado (atenção)
-    "info": "#1C64F2",          # Azul para informações
-    "light": "#F4F4F5",         # Fundo claro suave
-    "dark": "#1F2937",          # Fundo escuro
-    "neutral": "#6B7280"        # Cinza neutro para textos e gráficos
+# 🎨 Paleta de cores (acessível e compatível com modo claro/escuro)
+COLOR_PALETTE = {
+    "primary": "#005BBB",     # Azul institucional
+    "secondary": "#FFD500",   # Amarelo BR Bank
+    "success": "#3BB273",     # Verde para conversões
+    "danger": "#E94F37",      # Vermelho para alertas/perdas
+    "background": "#FFFFFF",  # Padrão branco (modo claro)
+    "text": "#333333"         # Texto padrão
 }
 
-# Perfis de stakeholders para visualização personalizada
+# 👤 Perfis de usuário disponíveis no menu inicial
 USER_PROFILES = [
-    "Executivo",   # Visão estratégica de faturamento e metas
-    "Growth",      # KPIs de aquisição, mídia e performance
-    "Vendas",      # Conversão, vendedores e motivos de perda
-    "Produto"      # Retenção, comportamento e oportunidades de upsell
+    "Executivo",
+    "Marketing & Growth",
+    "Time de Vendas",
+    "Produto"
 ]
 
-# Tipografia padrão
-FONT = {
-    "family": "Arial",
-    "size": {
-        "small": 12,
-        "medium": 14,
-        "large": 18
-    }
+# 🧾 Informações do projeto
+PROJECT_METADATA = {
+    "name": "Dashboard Tático – BR Bank",
+    "version": "1.0",
+    "authors": ["Dani Kaloi / Equipe Growth Analytics"],
+    "instituicao": "BR Bank",
+    "descricao": "Painel interativo para monitoramento de leads e performance comercial"
 }
 
-# Preferências visuais de acessibilidade
-THEME = {
-    "dark_mode": True,         # Inicia com modo escuro
-    "high_contrast": False,    # Contraste alto desabilitado por padrão
-    "color_blind_mode": False  # Compatível com visão daltônica
+# 🧠 Categorias de motivo de perda padronizadas
+MOTIVOS_PADRONIZADOS = [
+    "NÃO RETORNOU CONTATO",
+    "NÃO TEM INTERESSE",
+    "OUTROS",
+    "PREÇO ALTO",
+    "VAI DEIXAR PARA OUTRO MOMENTO",
+    "VAI FECHAR COM A CONCORRÊNCIA"
+]
+
+# ♿ Configurações de acessibilidade
+ACESSIBILIDADE_CONFIG = {
+    "modo_daltônico": True,
+    "contraste_automatico": True,
+    "dark_mode_default": False
 }
