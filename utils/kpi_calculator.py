@@ -1,57 +1,89 @@
-# utils/kpi_calculator.py
-# Cálculo dos principais KPIs do dashboard BR Bank
+# 📈 utils/kpi_calculator.py
+# Funções para cálculo dos KPIs essenciais do dashboard do BR Bank
 
 import pandas as pd
+import numpy as np
 
-def calcular_ctr(impressões: int, cliques: int) -> float:
-    """Click-through-rate (%)"""
-    return round((cliques / impressões) * 100, 2) if impressões else 0.0
+# CAC – Custo de Aquisição de Cliente
+# Fórmula: (Custo Ads + Custo Time de Vendas) / Clientes Adquiridos
+def calcular_cac(custo_ads, custo_vendas, num_clientes):
+    if num_clientes == 0:
+        return 0
+    return (custo_ads + custo_vendas) / num_clientes
 
-def calcular_cpa(custo_total: float, total_leads: int) -> float:
-    """Custo por Aquisição de Lead"""
-    return round(custo_total / total_leads, 2) if total_leads else 0.0
+# ROAS – Return on Ad Spend
+# Fórmula: Receita / Custo com Ads
+def calcular_roas(receita, custo_ads):
+    if custo_ads == 0:
+        return 0
+    return receita / custo_ads
 
-def calcular_cac(custo_total: float, clientes_convertidos: int) -> float:
-    """Custo de Aquisição de Cliente"""
-    return round(custo_total / clientes_convertidos, 2) if clientes_convertidos else 0.0
+# CPA – Custo por Aquisição de Lead
+# Fórmula: Custo Total / Nº de Leads Convertidos
+def calcular_cpa(custo_total, num_leads_convertidos):
+    if num_leads_convertidos == 0:
+        return 0
+    return custo_total / num_leads_convertidos
 
-def calcular_roas(receita: float, investimento: float) -> float:
-    """Retorno sobre investimento em anúncios (%)"""
-    return round((receita / investimento) * 100, 2) if investimento else 0.0
+# CPC – Custo por Clique
+# Fórmula: Custo / Cliques
+def calcular_cpc(custo_total, num_cliques):
+    if num_cliques == 0:
+        return 0
+    return custo_total / num_cliques
 
-def calcular_taxa_conversao(parcial: int, total: int) -> float:
-    """Taxa de conversão (%)"""
-    return round((parcial / total) * 100, 2) if total else 0.0
+# CTR – Click Through Rate
+# Fórmula: Cliques / Impressões
+def calcular_ctr(cliques, impressoes):
+    if impressoes == 0:
+        return 0
+    return cliques / impressoes
 
-def calcular_ticket_medio(receita_total: float, total_clientes: int) -> float:
-    """Receita média por cliente"""
-    return round(receita_total / total_clientes, 2) if total_clientes else 0.0
+# Taxa de Conversão de Leads → Clientes
+# Fórmula: Nº de Clientes / Nº de Leads
+def calcular_taxa_conversao(clientes, leads):
+    if leads == 0:
+        return 0
+    return clientes / leads
 
-def calcular_ltv(ticket_medio: float, tempo_medio_meses: int = 1) -> float:
-    """Lifetime Value (assumindo tempo médio como parâmetro externo)"""
-    return round(ticket_medio * tempo_medio_meses, 2)
+# Taxa de Conversão de Visitantes → Leads
+# Fórmula: Leads / Visitantes
+def calcular_conversao_visitantes_para_leads(leads, visitantes):
+    if visitantes == 0:
+        return 0
+    return leads / visitantes
 
-def calcular_margem_liquida(lucro_liquido: float, receita: float) -> float:
-    """Margem líquida (%)"""
-    return round((lucro_liquido / receita) * 100, 2) if receita else 0.0
+# Ticket Médio
+# Fórmula: Receita Total / Nº de Clientes
+def calcular_ticket_medio(receita_total, num_clientes):
+    if num_clientes == 0:
+        return 0
+    return receita_total / num_clientes
 
-def calcular_receita_total_por_vendedor(df: pd.DataFrame) -> pd.DataFrame:
-    """Soma de receita por vendedor"""
-    return df.groupby("vendedor")["receita"].sum().reset_index()
+# LTV – Lifetime Value
+# Fórmula: Receita média estimada por cliente no período de 12 meses
+def calcular_ltv(ticket_medio, meses=12):
+    return ticket_medio * (meses / 12)
 
-def calcular_taxa_perda_por_motivo(df: pd.DataFrame) -> pd.DataFrame:
-    """Calcula % de perda por motivo"""
-    total = len(df)
-    motivos = df['motivo_perda'].value_counts(normalize=True) * 100
-    return motivos.round(2).reset_index().rename(columns={'index': 'motivo', 'motivo_perda': 'percentual'})
+# Tempo Médio de Conversão
+# Fórmula: Média de dias entre entrada e conversão
+def calcular_tempo_medio_conversao(df):
+    if df.empty or "Tempo até Conversão (Dias)" not in df.columns:
+        return 0
+    return df["Tempo até Conversão (Dias)"].mean()
 
-def calcular_ranking_vendedores(df: pd.DataFrame) -> pd.DataFrame:
-    """Ranking de vendedores com base em receita e conversão"""
-    return df.groupby('vendedor').agg({
-        'receita': 'sum',
-        'lead_id': 'count',
-        'conversao': 'mean'
-    }).reset_index().rename(columns={
-        'lead_id': 'leads_recebidos',
-        'conversao': 'taxa_conversao'
-    }).sort_values(by='receita', ascending=False)
+# Receita por Vendedor
+# Retorna um DataFrame com somatório por responsável
+def calcular_receita_por_vendedor(df):
+    if "Vendedor que atendeu" not in df.columns or "Receita Gerada" not in df.columns:
+        return pd.DataFrame()
+    return df.groupby("Vendedor que atendeu")["Receita Gerada"].sum().reset_index()
+
+# Conversão por Vendedor
+# Retorna a taxa de conversão individual
+def calcular_conversao_por_vendedor(df):
+    if "Vendedor que atendeu" not in df.columns or "STATUS DO LEAD" not in df.columns:
+        return pd.DataFrame()
+    total = df.groupby("Vendedor que atendeu")["ID_Lead"].count()
+    convertidos = df[df["STATUS DO LEAD"] == "CONVERTIDO"].groupby("Vendedor que atendeu")["ID_Lead"].count()
+    return (convertidos / total).fillna(0).reset_index(name="Taxa de Conversão")
