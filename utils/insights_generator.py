@@ -1,47 +1,47 @@
 # utils/insights_generator.py
-# Geração automática de insights e frases dinâmicas no dashboard do BR Bank
+# 📡 Geração dinâmica de insights automáticos para o dashboard do BR Bank
 
 def gerar_insight_conversao(variacao: float) -> str:
     """
-    Gera insight com base na variação percentual da taxa de conversão.
+    Gera um insight baseado na variação percentual da taxa de conversão.
     """
     if variacao > 0:
-        return f"📈 Conversão aumentou em {variacao:.2f}% em relação ao período anterior. Mantenha as ações que estão dando certo!"
+        return f"📈 Conversão aumentou em {variacao:.2f}% em relação ao período anterior. Mantenha as estratégias de sucesso!"
     elif variacao < 0:
-        return f"📉 Conversão caiu {abs(variacao):.2f}%. Revise campanhas, argumentos de venda ou tempo de resposta."
+        return f"📉 Conversão caiu {abs(variacao):.2f}%. Reveja campanhas, abordagem comercial e tempo de resposta."
     else:
-        return "ℹ️ A taxa de conversão permaneceu estável neste período."
+        return "🔄 A taxa de conversão manteve-se estável. Busque oportunidades de otimização nos pontos de contato."
 
 def gerar_insight_roas(roas_atual: float) -> str:
     """
-    Gera insight com base no ROAS (Retorno sobre Ads).
+    Gera um insight com base no ROAS (Return on Ad Spend).
     """
     if roas_atual >= 500:
-        return f"🚀 Excelente! O ROAS atual é {roas_atual:.2f}%. Os investimentos estão performando bem."
+        return f"🚀 Excelente desempenho! ROAS atual é de {roas_atual:.2f}%. Os investimentos estão gerando ótimo retorno."
     elif roas_atual >= 300:
-        return f"✅ ROAS saudável em {roas_atual:.2f}%. Há espaço para otimização e escala."
+        return f"✅ ROAS saudável em {roas_atual:.2f}%. Há espaço para escalar campanhas com melhor performance."
     else:
-        return f"⚠️ Atenção: ROAS abaixo do ideal ({roas_atual:.2f}%). Avalie campanhas com baixo retorno."
+        return f"⚠️ ROAS abaixo do ideal ({roas_atual:.2f}%). Considere revisar segmentações e criativos com baixo retorno."
 
 def gerar_insight_vendedor(nome: str, crescimento: float) -> str:
     """
-    Gera frase de destaque por vendedor com crescimento de performance.
+    Gera destaque personalizado para vendedores com base na variação de conversão.
     """
     if crescimento > 0:
-        return f"🏆 O vendedor {nome} teve um crescimento de {crescimento:.2f}% na conversão esta semana!"
+        return f"🏆 {nome} teve crescimento de {crescimento:.2f}% na conversão nesta semana. Excelente performance!"
     elif crescimento < 0:
-        return f"🔻 O vendedor {nome} teve uma queda de {abs(crescimento):.2f}% na taxa de conversão. Pode ser hora de oferecer suporte."
+        return f"📉 {nome} teve queda de {abs(crescimento):.2f}% na conversão. Ofereça suporte para identificar gargalos."
     else:
-        return f"📊 O vendedor {nome} manteve sua taxa de conversão estável no período."
+        return f"📊 {nome} manteve sua taxa de conversão estável no período. Estabilidade pode ser oportunidade de evolução."
 
 def gerar_insight_ticket(ticket_atual: float, ticket_anterior: float) -> str:
     """
-    Gera insight sobre variação de ticket médio.
+    Gera um insight estratégico sobre a variação no ticket médio.
     """
     diff = ticket_atual - ticket_anterior
     if diff > 0:
-        return f"💰 Ticket médio subiu para R$ {ticket_atual:.2f}. Excelente para aumentar o LTV!"
+        return f"💰 Ticket médio aumentou para R$ {ticket_atual:,.2f}. Isso indica maior potencial de receita por cliente."
     elif diff < 0:
-        return f"🧐 Ticket médio caiu para R$ {ticket_atual:.2f}. Avalie se há oportunidade de upsell."
+        return f"🧐 Ticket médio caiu para R$ {ticket_atual:,.2f}. Explore estratégias de upsell e bundles."
     else:
-        return "📍 Ticket médio estável no período. Mantenha o foco nos clientes de maior potencial."
+        return "📌 Ticket médio está estável. Reforce ações de valor percebido e explore oportunidades de upgrade."
