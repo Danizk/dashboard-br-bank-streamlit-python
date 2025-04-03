@@ -1,30 +1,30 @@
-# settings.py
-# Configurações globais do dashboard BR Bank
+# config/settings.py
+# Configurações globais do Dashboard BR Bank
 
-# Paleta de cores acessível (modo claro/escuro e contraste)
+# Paleta de cores acessível para modo claro e escuro
 PALETTE = {
-    "primary": "#005BA1",     # Azul escuro institucional (bom contraste em fundo claro)
-    "secondary": "#0072CE",   # Azul médio vibrante (boa legibilidade com branco/preto)
-    "success": "#2E8540",     # Verde escuro acessível (substitui o verde padrão para contraste)
-    "danger": "#B91C1C",      # Vermelho escuro (alerta crítico, legível sobre claro/escuro)
-    "warning": "#F59E0B",     # Amarelo queimado (melhor legibilidade que o amarelo puro)
-    "info": "#1C64F2",        # Azul informativo vibrante (ótimo contraste e destaque)
-    "light": "#F4F4F5",       # Cinza claro para fundo (modo claro suave, menos brilho)
-    "dark": "#1F2937",        # Azul petróleo escuro (para fundo no dark mode)
-    "neutral": "#6B7280"      # Texto neutro, cinza médio com bom contraste sobre ambos modos
+    "primary": "#005BA1",       # Azul institucional
+    "secondary": "#0072CE",     # Azul claro vibrante
+    "success": "#2E8540",       # Verde escuro (contraste elevado)
+    "danger": "#B91C1C",        # Vermelho escuro (alerta)
+    "warning": "#F59E0B",       # Amarelo queimado (atenção)
+    "info": "#1C64F2",          # Azul para informações
+    "light": "#F4F4F5",         # Fundo claro suave
+    "dark": "#1F2937",          # Fundo escuro
+    "neutral": "#6B7280"        # Cinza neutro para textos e gráficos
 }
 
-# 👤 Perfis de stakeholders para navegação e visões personalizadas
+# Perfis de stakeholders para visualização personalizada
 USER_PROFILES = [
-    "Executivo",   # Visão de metas, receita, margem, projeções
-    "Growth",      # Aquisição, CAC, ROAS, campanhas
-    "Vendas",      # Conversão por vendedor, follow-ups, perdas
-    "Produto"      # Retenção, churn, upsell/cross-sell
+    "Executivo",   # Visão estratégica de faturamento e metas
+    "Growth",      # KPIs de aquisição, mídia e performance
+    "Vendas",      # Conversão, vendedores e motivos de perda
+    "Produto"      # Retenção, comportamento e oportunidades de upsell
 ]
 
-# 🔤 Configurações tipográficas
+# Tipografia padrão
 FONT = {
-    "family": "Arial",  # Fonte padrão (web-safe e acessível)
+    "family": "Arial",
     "size": {
         "small": 12,
         "medium": 14,
@@ -32,9 +32,9 @@ FONT = {
     }
 }
 
-# ♿ Preferências de acessibilidade
+# Preferências visuais de acessibilidade
 THEME = {
-    "dark_mode": True,           # Modo escuro ativado por padrão
-    "high_contrast": False,      # Contraste alto desativado
-    "color_blind_mode": False    # Suporte a daltônicos (paleta alternativa pode ser implementada)
+    "dark_mode": True,         # Inicia com modo escuro
+    "high_contrast": False,    # Contraste alto desabilitado por padrão
+    "color_blind_mode": False  # Compatível com visão daltônica
 }
