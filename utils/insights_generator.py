@@ -45,3 +45,12 @@ def gerar_insight_ticket(ticket_atual: float, ticket_anterior: float) -> str:
         return f"🧐 Ticket médio caiu para R$ {ticket_atual:,.2f}. Explore estratégias de upsell e bundles."
     else:
         return "📌 Ticket médio está estável. Reforce ações de valor percebido e explore oportunidades de upgrade."
+
+def gerar_insight_receita(receita_atual: float, receita_anterior: float) -> str:
+    variacao = receita_atual - receita_anterior
+    if variacao > 0:
+        return f"📈 Receita cresceu R$ {variacao:,.2f} no período. Sinal de bom desempenho comercial."
+    elif variacao < 0:
+        return f"📉 Receita caiu R$ {abs(variacao):,.2f}. Avalie os canais de aquisição e produtividade do time."
+    else:
+        return "📊 Receita estável no período. Busque acelerar conversão e ticket médio."
