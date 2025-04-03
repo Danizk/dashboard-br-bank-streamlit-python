@@ -8,7 +8,12 @@ from utils.kpi_calculator import (
     calcular_cac, calcular_roas, calcular_margem_liquida,
     calcular_taxa_conversao, calcular_ticket_medio
 )
-from utils.insights_generator import gerar_insight_receita, gerar_insight_conversao
+from utils.insights_generator import (
+    gerar_insight_conversao,
+    gerar_insight_roas,
+    gerar_insight_vendedor,
+    gerar_insight_ticket
+)
 
 # Simulação de dados carregados (normalmente virão do processed/)
 df_kpis = pd.read_csv("data/processed/kpis_gerais.csv")
