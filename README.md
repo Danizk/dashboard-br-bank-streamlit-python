@@ -114,3 +114,6 @@ Growth & Analytics Lead – BR Bank
 🔗 https://www.linkedin.com/in/danikaloi/
 
 Este projeto faz parte de uma estratégia de crescimento orientada por dados. Ele transforma dados dispersos em inteligência prática para times de performance, vendas e produto.
+
+
+
