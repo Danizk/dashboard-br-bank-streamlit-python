@@ -1,39 +1,71 @@
-# config/constants.py
-# Constantes globais do projeto BR Bank – Central de parâmetros fixos
+# 📦 constants.py
+# Constantes reutilizáveis no projeto Dashboard BR Bank
 
-# 🎯 Metas e Objetivos Estratégicos
-META_FATURAMENTO = 30_000_000  # Meta de faturamento (R$)
-TAXA_CONVERSAO_META = 0.30     # Meta de conversão de leads
-META_TICKET_MEDIO = 19509.79   # Valor atual (base histórica)
+# 📁 Caminhos de dados processados
+PATHS = {
+    "CRM": "data/processed/crm.csv",
+    "ADS": "data/processed/dados_consolidados.csv",
+    "ANALYTICS": "data/processed/google_analytics.csv",
+    "CALCULOS": "data/processed/calculos.csv",
+    "CONVERTIDOS": "data/processed/leads_convertidos_trafego_pago_.csv",
+    "RELATORIO_ANALITICO": "data/processed/relatorio_analitico_consolidado.csv",
+    "KPIS": "data/processed/kpis_e_metricas_.csv"
+}
 
-# 📅 Intervalo de análise dos dados
-PERIODO_INICIAL = "2022-09-01"
-PERIODO_FINAL = "2023-02-28"
+# 📅 Campos de data padrão por base
+DATA_FIELDS = {
+    "CRM": ["Data do Lead", "Data da Conversão"],
+    "ADS": ["Dia"],
+    "ANALYTICS": ["Data de Acesso"]
+}
 
-# 🧬 Públicos-alvo
-TIPOS_PUBLICO = ["HOT", "COLD"]
+# 🧩 Nomes de colunas padronizadas
+COLUMNS = {
+    "STATUS": "STATUS DO LEAD",
+    "VENDEDOR": "Vendedor que atendeu",
+    "CANAL": "CANAL_ORIGEM",
+    "RECEITA": "Receita Gerada",
+    "TEMPO_CONVERSAO": "Tempo até Conversão (Dias)",
+    "MOTIVO_PERDA": "Motivo da Perda"
+}
 
-# 📊 Colunas padrão utilizadas em múltiplos módulos
-COLUNAS_KPIS = [
-    "impressões",
-    "cliques",
-    "leads",
-    "clientes",
-    "receita",
-    "custo_total",
-    "vendedor"
+# 🎯 Blocos estratégicos do dashboard
+BLOCOS_DASHBOARD = [
+    "🏠 Home",
+    "📊 Visão Executiva",
+    "📈 Aquisição de Leads",
+    "🔁 Retenção de Leads",
+    "💰 Monetização",
+    "🚀 Projeções e Receita",
+    "🧠 Visão Analítica",
+    "♿ Acessibilidade"
 ]
 
-# 📌 Motivos de perda padronizados
-MOTIVOS_PERDA = [
-    "Não retornou contato",
-    "Não tem interesse",
-    "Outros",
-    "Preço alto",
-    "Vai deixar para outro momento",
-    "Vai fechar com a concorrência"
+# 📊 Nomes de KPIs usados em cards e métricas
+KPIS_PRINCIPAIS = [
+    "Receita Total",
+    "Lucro Líquido",
+    "ROAS",
+    "CAC",
+    "Ticket Médio",
+    "LTV",
+    "Taxa de Conversão",
+    "Tempo Médio de Conversão",
+    "Leads Ativos para Follow-up"
 ]
 
-# 🔢 Configurações para simuladores
-SIMULACAO_MAX_VENDEDORES = 10
-SIMULACAO_VARIACAO_CONVERSAO = [0.01, 0.02, 0.05, 0.10]
+# 🎨 Emojis utilizados como ícones substitutos
+ICONS_EMOJIS = {
+    "Receita": "💵",
+    "Conversão": "✅",
+    "Perda": "❌",
+    "ROAS": "📢",
+    "Ticket Médio": "🎟️",
+    "Lead Ativo": "📬",
+    "Simulador": "🔮"
+}
+
+# ℹ️ Versão e metadados
+VERSAO_ATUAL = "1.0"
+DESENVOLVIDO_POR = "Growth Analytics Team – BR Bank"
+ULTIMA_ATUALIZACAO = "2025-04-03"
