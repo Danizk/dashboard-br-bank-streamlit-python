@@ -5,14 +5,14 @@ __pycache__/
 *.pyd
 *.pyc
 *.pyp
-*.pyo
-*.pyo
 *.pdb
 *.egg
 *.egg-info/
 *.manifest
 *.spec
 .eggs/
+
+# 🧪 Ambientes Virtuais
 env/
 venv/
 ENV/
@@ -20,27 +20,34 @@ env.bak/
 venv.bak/
 .venv/
 
-# 📊 Dados temporários e de cache
+# 📊 Dados Temporários e Arquivos de Dados
 *.db
 *.sqlite3
 *.log
+*.json
+*.parquet
+*.feather
+*.zip
+*.tmp
+*.bak
+*.swp
+*~
+
+# 🧾 Arquivos tabulares (apenas leitura local, não versionar no GitHub)
 *.csv
 *.tsv
 *.xlsx
 *.xls
-*.json
-*.parquet
-*.feather
 
-# ⛔️ Planilha original (deixar apenas no raw local, não versionar no GitHub)
+# ⛔️ Planilha original (somente local)
 data/raw/
 !data/raw/README.md
 
-# 📁 Dados processados gerados automaticamente
+# 📁 Dados tratados e prontos para ingestão (Streamlit carrega localmente)
 data/processed/
 !data/processed/README.md
 
-# ⚙️ Arquivos do Streamlit
+# ⚙️ Arquivos e cache do Streamlit
 .streamlit/
 .streamlit/config.toml
 .streamlit/*.json
@@ -50,15 +57,8 @@ data/processed/
 .DS_Store
 Thumbs.db
 
-# 🔍 Editor & IDE
+# 🔍 Arquivos de configuração de editores e IDEs
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
-
-# 🚫 Outros
-*.zip
-*.bak
-*.tmp
-*.swp
-*~
