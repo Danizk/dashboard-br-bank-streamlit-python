@@ -3,12 +3,18 @@
 
 import streamlit as st
 from pages import (
-    home, overview, acquisition, retention,
-    monetization, projections, analytics, accessibility
+    home,
+    overview,
+    acquisition,
+    retention,
+    monetization,
+    projections,
+    analytics,
+    accessibility
 )
 from config.settings import USER_PROFILES
 
-# 🚀 Configuração da aplicação
+# 🚀 Configuração geral da aplicação
 st.set_page_config(
     page_title="Dashboard BR Bank",
     page_icon="💼",
@@ -16,16 +22,16 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 👤 Perfil do Usuário
+# 👤 Seletor de Perfil do Usuário
 st.sidebar.title("👤 Perfil de Acesso")
 selected_profile = st.sidebar.selectbox(
-    "Selecione seu perfil:",
-    USER_PROFILES,
+    label="Selecione seu perfil:",
+    options=USER_PROFILES,
     index=0,
-    help="O conteúdo será personalizado de acordo com o perfil selecionado."
+    help="O conteúdo será adaptado conforme o tipo de usuário (Executivo, Growth, Vendas, Produto)."
 )
 
-# 🧭 Menu de Navegação
+# 🧭 Menu de Navegação (Modular por objetivo estratégico)
 st.sidebar.title("📌 Navegação")
 PAGES = {
     "🏠 Home": home,
@@ -39,20 +45,20 @@ PAGES = {
 }
 
 selected_page = st.sidebar.radio(
-    "Escolha uma seção:",
-    list(PAGES.keys()),
-    help="Use este menu para navegar entre os módulos estratégicos."
+    label="Escolha uma seção:",
+    options=list(PAGES.keys()),
+    help="Navegue pelos módulos do dashboard conforme seu objetivo."
 )
 
-# 🔄 Executar página selecionada
+# 🔄 Renderização da Página Selecionada
 PAGES[selected_page].show(profile=selected_profile)
 
-# ✅ Rodapé opcional
+# ✅ Rodapé institucional
 st.markdown(
     """
     <hr style='margin-top: 2rem;'>
     <div style='text-align: center; color: gray; font-size: 0.85rem;'>
-        Desenvolvido por Growth Analytics Team • BR Bank • 2023
+        Desenvolvido por <b>Growth Analytics Team</b> • BR Bank • ©2023-2025
     </div>
     """,
     unsafe_allow_html=True
